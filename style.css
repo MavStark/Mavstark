@@ -1,43 +1,74 @@
+/* Fond animé galaxie */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #000;
+  background: radial-gradient(ellipse at bottom, #0d1a26 0%, #000 100%);
   color: #fff;
   text-align: center;
+  overflow-x: hidden;
 }
 
+/* Animation étoiles */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  animation: moveStars 200s linear infinite;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes moveStars {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-1000px, 1000px); }
+}
+
+/* Header et logo */
 header {
   padding: 20px;
 }
 
 .logo {
-  max-width: 300px;
+  max-width: 320px;
+  filter: drop-shadow(0 0 15px #0ff);
 }
 
+/* Titres */
 h2 {
   color: #0ff;
   margin-top: 40px;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
 }
 
+/* Boutons musique et boutique */
 .links a, .btn {
   display: inline-block;
-  margin: 10px;
-  padding: 12px 24px;
+  margin: 12px;
+  padding: 14px 28px;
   color: #000;
   background: #0ff;
   text-decoration: none;
   font-weight: bold;
   border-radius: 8px;
   transition: 0.3s;
+  box-shadow: 0 0 12px #0ff, 0 0 24px #0ff;
 }
 
 .links a:hover, .btn:hover {
   background: #00a3a3;
   color: #fff;
+  box-shadow: 0 0 16px #00fafa, 0 0 32px #00fafa;
 }
 
+/* Footer */
 footer {
-  margin-top: 40px;
+  margin-top: 60px;
   padding: 20px;
-  background: #111;
+  background: rgba(0,0,0,0.6);
+  border-top: 1px solid #0ff;
+  text-shadow: 0 0 5px #0ff;
 }
